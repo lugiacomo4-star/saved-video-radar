@@ -1,0 +1,11 @@
+{
+  "name": "saved-video-radar",
+  "displayName": "Saved Video Radar",
+  "version": "1.0.0",
+  "description": "Turn the YouTube videos you save into one-page cards tied to your own projects: what the video says, why it matters to your work, and the next two actions. Cheap triage with Jev (TypeSafe) or with Claude alone.",
+  "author": { "name": "Giacomo Lu", "url": "https://github.com/lugiacomo4-star" },
+  "repository": "https://github.com/lugiacomo4-star/saved-video-radar",
+  "homepage": "https://github.com/lugiacomo4-star/saved-video-radar",
+  "license": "MIT",
+  "keywords": ["youtube", "radar", "notes", "second-brain", "jev", "transcripts", "playlists"]
+}
