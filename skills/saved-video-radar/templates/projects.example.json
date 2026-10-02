@@ -1,0 +1,12 @@
+{
+  "updated": "2026-10-02",
+  "projects": [
+    {"id": "build-ai", "name": "Building with AI", "what": "Claude Code, agents, skills, MCP, automations, new models"},
+    {"id": "content", "name": "Content and design", "what": "Instagram carousels and reels, design systems, AI images and video"},
+    {"id": "clients", "name": "Client websites", "what": "scroll-driven sites, 3D assets, SEO, hosting, selling sites"},
+    {"id": "money", "name": "Money and finance", "what": "passive income, investing, cash flow, debts and credits"},
+    {"id": "business", "name": "Day-to-day business", "what": "shops, staff, partners, governance, operations"},
+    {"id": "health", "name": "Body and health", "what": "gym, sleep, energy"},
+    {"id": "none", "name": "No project", "what": "entertainment, music, curiosity with no application"}
+  ]
+}
