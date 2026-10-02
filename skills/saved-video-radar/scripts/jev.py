@@ -15,12 +15,12 @@ All questions go in ONE call: same input cost, several answers.
 
 Two routes, tried in this order:
   1. OpenRouter   POST https://openrouter.ai/api/v1/systemone   model typesafe/jev-1.13
-     key: OPENROUTER_API_KEY or ~/.config/saved-video-radar/openrouter.key
+     key: the OPENROUTER_API_KEY environment variable (set it yourself for the session)
   2. TypeSafe     POST https://api.typesafe.ai/v1/systemone     model jev-latest
-     key: TYPESAFE_API_KEY or ~/.config/saved-video-radar/typesafe.key
+     key: the TYPESAFE_API_KEY environment variable
 
-Price (Sep 2026): about $0.04 per million input tokens, output free.
-Keys are never printed.
+Each key is sent only to its own vendor (OpenRouter or TypeSafe), as a Bearer header.
+No key is read from files, stored, or printed.
 """
 
 import json
@@ -38,23 +38,12 @@ class JevError(Exception):
     pass
 
 
-def _read(*paths):
-    for p in paths:
-        f = os.path.expanduser(p)
-        if os.path.isfile(f):
-            with open(f) as fh:
-                v = fh.read().strip()
-            if v:
-                return v
-    return None
-
-
 def route():
     """Return (url, model, key) for the first available route, or None."""
-    k = os.environ.get("OPENROUTER_API_KEY") or _read("~/.config/saved-video-radar/openrouter.key")
+    k = os.environ.get("OPENROUTER_API_KEY")
     if k:
         return OR_URL, OR_MODEL, k
-    k = os.environ.get("TYPESAFE_API_KEY") or _read("~/.config/saved-video-radar/typesafe.key")
+    k = os.environ.get("TYPESAFE_API_KEY")
     if k:
         return TS_URL, TS_MODEL, k
     return None
