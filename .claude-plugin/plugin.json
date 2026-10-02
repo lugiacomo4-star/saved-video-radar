@@ -7,5 +7,6 @@
   "repository": "https://github.com/lugiacomo4-star/saved-video-radar",
   "homepage": "https://github.com/lugiacomo4-star/saved-video-radar",
   "license": "MIT",
+  "icon": "./.claude-plugin/icon.png",
   "keywords": ["youtube", "radar", "notes", "second-brain", "jev", "transcripts", "playlists"]
 }
