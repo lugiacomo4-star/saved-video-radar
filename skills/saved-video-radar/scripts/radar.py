@@ -35,7 +35,21 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import jev  # noqa: E402
 
-RADAR = os.path.abspath(os.environ.get("RADAR_DIR", "radar"))
+
+def _radar_dir():
+    """The radar folder must stay inside the folder you run the script from.
+
+    RADAR_DIR may rename it or put it in a subfolder, never outside: this keeps
+    an environment variable from pointing the script's writes somewhere else.
+    """
+    base = os.path.realpath(os.getcwd())
+    target = os.path.realpath(os.path.join(base, os.environ.get("RADAR_DIR", "radar")))
+    if target == base or os.path.commonpath([base, target]) != base:
+        sys.exit("RADAR_DIR must be a subfolder of the current folder: %s" % base)
+    return target
+
+
+RADAR = _radar_dir()
 CARDS = os.path.join(RADAR, "cards")
 SEEN = os.path.join(RADAR, "seen.json")
 PROJECTS = os.path.join(RADAR, "projects.json")
